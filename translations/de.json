@@ -119,6 +119,16 @@
       "description" : "Verwaltung der Verteiler und Versand von Serienbriefen"
     }
   },
+  "filter" : {
+    "filter" : {
+      "title" : "Filtereigenschaft",
+      "description" : "Einzelne Filtereigenschaft"
+    },
+    "addMore" : {
+      "title" : "Weitere Filtereigenschaft hinzufügen",
+      "description" : "Eine weitere Filtereigenschaft zum Filter hinzufügen"
+    }
+  },
   "filters" : {
     "filters" : {
       "title" : "Filter",

@@ -40,7 +40,7 @@ function add($section, $values){
   $update = "";
   foreach ($values as $key => $val) {
     if($key != "ID" && $key != "section" && isset($val) && $val != "" && $val != "0000-00-00"){
-      if(empty($sqlfields)){$sqlfields = $key;}else{$sqlfields .= ",".$key;}
+      if(empty($sqlfields)){$sqlfields = "`".$key."`";}else{$sqlfields .= ",`".$key."`";}
       if(empty($sqlvalues)){$sqlvalues = "'".$val."'";}else{$sqlvalues .= ",'".$val."'";}
     }
   }
