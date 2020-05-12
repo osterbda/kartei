@@ -3,7 +3,11 @@ function icon($icon){
   return icons($icon, 16);
 }
 function icons($icon, $size){
-  return "<clr-icon shape='".$GLOBALS["icons"][$icon]."' size='".$size."'></clr-icon>";
+  if(isset($GLOBALS["icons"][$icon])){
+    return "<clr-icon shape='".$GLOBALS["icons"][$icon]."' size='".$size."'></clr-icon>";
+  }else{
+    return "";
+  }
 }
 
 function filter($ID){
