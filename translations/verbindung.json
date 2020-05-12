@@ -17,24 +17,24 @@
   },
   "members" : {
     "member" : {
-      "title" : "Mitglied",
-      "description" : "Ein Mitglied der Organisation"
+      "title" : "Bundesbruder",
+      "description" : "Ein Bundesbruder"
     },
     "members" : {
-      "title" : "Mitglieder",
-      "description" : "Übersicht der Mitglieder der Organisation"
+      "title" : "Bundesbrüder",
+      "description" : "Übersicht der Bundesbrüder"
     },
     "add" : {
-      "title" : "Mitglied hinzufügen",
-      "description" : "Ein Mitglied der Organisation hinzufügen"
+      "title" : "Bundesbruder hinzufügen",
+      "description" : "Einen Bundesbruder hinzufügen"
     },
     "addMore" : {
-      "title" : "Weiteres Mitglied hinzufügen",
-      "description" : "Ein weiteres Mitglied zur Organisation hinzufügen"
+      "title" : "Weiteren Bundesbruder hinzufügen",
+      "description" : "Einen weiteren Bundesbruder hinzufügen"
     },
     "ID" : {
-      "title" : "Mitgliedsnummer",
-      "description" : "Interne Nummer des Mitglieds"
+      "title" : "Nummer",
+      "description" : "Interne Nummer des Bundesbruders"
     },
     "salutation" : {
       "title" : "Anrede",
@@ -50,15 +50,15 @@
     },
     "nameFamily" : {
       "title" : "Familienname",
-      "description" : "Derzeitiger Familienname des Mitglieds in der Anschrift"
+      "description" : "Derzeitiger Familienname des Bundesbruders in der Anschrift"
     },
     "nameGiven" : {
       "title" : "Vorname(n)",
-      "description" : "Vorname(n) des Mitglieds in der Anschrift"
+      "description" : "Vorname(n) des Bundesbruders in der Anschrift"
     },
     "nickname" : {
-      "title" : "Spitzname",
-      "description" : "Spitzname des Mitglieds"
+      "title" : "Biername",
+      "description" : "Biername oder Vulgo z.B. Rammbock"
     },
     "address1" : {
       "title" : "C/O",
@@ -78,11 +78,11 @@
     },
     "place" : {
       "title" : "Ort",
-      "description" : "Wohnort des Mitglieds"
+      "description" : "Wohnort des Bundesbruders"
     },
     "country" : {
       "title" : "Land",
-      "description" : "Land des Mitglieds"
+      "description" : "Wohnland des Bundesbruders"
     },
     "phone" : {
       "title" : "Telefon",
@@ -150,7 +150,7 @@
     },
     "preview" : {
       "title" : "Filtervoschau",
-      "description" : "Vorschau der FIlterfunktion mit beschränkter Anzahl der angezeigten Ergebnisse"
+      "description" : "Vorschau der Filterfunktion mit beschränkter Anzahl der angezeigten Ergebnisse"
     }
   },
   "membershipTypes" : {
@@ -160,7 +160,7 @@
     },
     "membershipTypes" : {
       "title" : "Mitgliedsarten",
-      "description" : "Übersicht der Mitgliedsarten (z.B. Vollmitglied, Fördermitglied)"
+      "description" : "Übersicht der Mitgliedsarten (z.B. Burschen, Ehrenmitglieder)"
     },
     "membershipType" : {
       "title" : "Mitgliedsart",
@@ -198,23 +198,23 @@
   "offices" : {
     "ID" : {
       "title" : "Nummer",
-      "description" : "Interne Nummer des Amtes"
+      "description" : "Interne Nummer der Charge"
     },
     "offices" : {
       "title" : "Ämter",
-      "description" : "Übersicht der Ämter der Organisation"
+      "description" : "Übersicht der Chargen der Organisation"
     },
     "office" : {
-      "title" : "Amt",
-      "description" : "Titel des Amtes"
+      "title" : "Charge",
+      "description" : "Titel der Charge"
     },
     "colleagues" : {
-      "title" : "Amtskollegen",
-      "description" : "Zeitgleiche Amtsträger"
+      "title" : "Conchargen",
+      "description" : "Zeitgleiche Chargen"
     },
     "description" : {
       "title" : "Beschreibung",
-      "description" : "Kurze Aufgabenbeschreibung des Amtes"
+      "description" : "Kurze Aufgabenbeschreibung der Charge"
     },
     "sort" : {
       "title" : "Sortierreihenfolge",
@@ -229,12 +229,12 @@
       "description" : "Datum des Amtsendes im Format JJJJ-MM-TT"
     },
     "add" : {
-      "title" : "Amt hinzufügen",
-      "description" : "EIn neues Amt hinzufügen z.B. Beisitzer"
+      "title" : "Charge hinzufügen",
+      "description" : "Eine neue Charge hinzufügen z.B. Beisitzer"
     },
     "addMore" : {
-      "title" : "Weiteres Amt hinzufügen",
-      "description" : "Ein weiteres Amt hinzufügen"
+      "title" : "Weitere Charge hinzufügen",
+      "description" : "Eine weitere Charge hinzufügen"
     }
   },
   "tools" : {
