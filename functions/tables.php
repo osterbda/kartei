@@ -99,7 +99,7 @@ function t_mt ($ID, $t1){
               ORDER BY date ASC";
   }else {
     $table .= "<th>".$GLOBALS["trans"]["members"]["member"]["title"]."</th></tr></thead>";
-    $query = "SELECT m.ID, CONCAT(prefix,' ',nameGiven,' ',nameFamily,', ',suffix) AS member, DATE_FORMAT(mt.date, '%d.%m.%Y') AS d
+    $query = "SELECT m.ID, CONCAT(title,' ',nameGiven,' ',nameFamily,', ',suffix) AS member, DATE_FORMAT(mt.date, '%d.%m.%Y') AS d
               FROM membershiptypes t
                 LEFT JOIN mt ON t.ID = mt.membershiptype
                 LEFT JOIN members m ON mt.member = m.ID
@@ -227,7 +227,6 @@ function t_filter_preview($ID){
   $table .= "<th>".$GLOBALS["trans"]["members"]["place"]["title"]."</th>";
   $table .= "</tr></thead><tbody>";
   $query = filter($ID);
-  echo $query;
   $result = mysqli_query($GLOBALS["db"], $query);
   if(!$result){
     $table .= "<tr><td colspan='8'>".$query."</td></tr>";
