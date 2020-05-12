@@ -1,0 +1,63 @@
+.primary{
+  color: #aed581;
+}
+input:focus{
+  background: #ffffff;
+  outline: 2px solid #aed581;
+}
+.primary-light{
+  color: #e1ffb1;
+}
+.primary-dark, a{
+  color: #7da453;
+}
+.bg-primary,
+thead,
+.pills a
+{
+  color: #000;
+  background: #aed581;
+}
+.bg-primary-light,
+tr:nth-child(even)
+{
+  background: #e1ffb1;
+}
+.bg-primary-dark{
+  color: #ffffff;
+  background  : #7da453;
+}
+.bg-primary a, .bg-primary-dark a{
+  color: #ffffff;
+}
+
+.secondary{
+  color: #cfd8dc;
+}
+.secondary-light{
+  color: #ffffff;
+}
+.secondary-dark{
+  color: #9ea7aa;
+}
+.bg-secondary{
+  background: #cfd8dc;
+}
+.bg-secondary-light{
+  background: #fcfcfc;
+}
+.bg-secondary-dark{
+  background: #9ea7aa;
+  color: #ffffff;
+}
+.bg-white{
+  background: #ffffff;
+}
+
+/*   C L A S S   C O L O R S   */
+.shadow, .header, .main, table {
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+.shadow2 {
+  box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+}

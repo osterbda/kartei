@@ -1,0 +1,67 @@
+.primary{
+  color: var(--primary);
+}
+.primary-light{
+  color: var(--primary-light);
+}
+.primary-dark{
+  color: var(--primary);
+}
+.bg-primary{
+  background: var(--primary);
+}
+.bg-primary-light{
+  background: var(--primary-light);
+}
+.bg-primary-dark{
+  background: var(--primary-dark);
+}
+
+.secondary{
+  color: var(--secondary);
+}
+.secondary-light{
+  color: var(--secondary-light);
+}
+.secondary-dark{
+  color: var(--secondary-dark);
+}
+.bg-secondary{
+  background: var(--secondary);
+}
+.bg-secondary-light{
+  background: var(--secondary-light);
+}
+.bg-secondary-dark{
+  background: var(--secondary-dark);
+}
+.bg-white{
+  background: #ffffff;
+}
+.bg-primary, .bg-primary-dark, .bg-secondary, .bg-secondary-dark,
+.bg-primary *, .bg-primary-dark *, .bg-secondary *, .bg-secondary-dark *{
+  color: #fff;
+}
+.bg-primary-light, .bg-secondary-light,
+.bg-primary-light *, .bg-secondary-light *{
+  color: #000;
+}
+
+/*   C L A S S   C O L O R S   */
+input{
+  transition: all;
+  transition-duration: 500ms;
+  transition-timing-function: ease-in-out;
+}
+a>div, input{
+  transition: box-shadow;
+  transition-duration: .2s;
+}
+.shadow, table, input:focus, input[type="submit"]:hover, a>div:hover{
+  /*box-shadow: 0 2px 5px rgba(0,0,0,0.2);*/
+  box-shadow: 0 0px 5px 2px rgba(0,0,0,0.5);
+  z-index: 3
+}
+.shadow2 {
+  box-shadow: inset 0 -2px 5px rgba(0,0,0,0.2);
+}

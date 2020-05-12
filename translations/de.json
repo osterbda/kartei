@@ -1,0 +1,326 @@
+{
+  "key" : "Eigenschaft",
+  "value" : "Wert",
+  "action" : "Aktion",
+  "page" : "Seite",
+  "details" : "Details",
+  "logout" : "Abmelden",
+  "gotoEntry" : "Gehe zum Datensatz",
+  "totalResults" : "Ergebnisse",
+  "min" : "Mindestens",
+  "max" : "Maximal",
+  "home" : {
+    "home" : {
+      "title" : "Startseite",
+      "description" : "Startseite von MemReg"
+    }
+  },
+  "members" : {
+    "member" : {
+      "title" : "Mitglied",
+      "description" : "Ein Mitglied der Organisation"
+    },
+    "members" : {
+      "title" : "Mitglieder",
+      "description" : "Übersicht der Mitglieder der Organisation"
+    },
+    "add" : {
+      "title" : "Mitglied hinzufügen",
+      "description" : "Ein Mitglied der Organisation hinzufügen"
+    },
+    "addMore" : {
+      "title" : "Weiteres Mitglied hinzufügen",
+      "description" : "Ein weiteres Mitglied zur Organisation hinzufügen"
+    },
+    "ID" : {
+      "title" : "Mitgliedsnummer",
+      "description" : "Interne Nummer des Mitglieds"
+    },
+    "salutation" : {
+      "title" : "Anrede",
+      "description" : "Anrede vor dem Namen in der Anschrift z.B. 'Herr'"
+    },
+    "title" : {
+      "title" : "Titel",
+      "description" : "Titel vor dem Namen in der Anschrift z.B. 'Prof. Dr.'"
+    },
+    "suffix" : {
+      "title" : "Suffix",
+      "description" : "Suffix nach dem Namen in der Anschrift z.B. stud. oec. inf."
+    },
+    "nameFamily" : {
+      "title" : "Familienname",
+      "description" : "Derzeitiger Familienname des Mitglieds in der Anschrift"
+    },
+    "nameGiven" : {
+      "title" : "Vorname(n)",
+      "description" : "Vorname(n) des Mitglieds in der Anschrift"
+    },
+    "nickname" : {
+      "title" : "Biername",
+      "description" : "Biername oder Vulgo z.B. Rammbock"
+    },
+    "address1" : {
+      "title" : "C/O",
+      "description" : "Erste Adresszeile der Anschrift, üblicherweise ein c/o oder eine Zimmer-/Appartmentnummer"
+    },
+    "address2" : {
+      "title" : "Straße und Hausnummer",
+      "description" : "Zweite Adresszeile der Anschrift, üblicherweise die Appartmentnummer oder die Straße und die Hausnummer"
+    },
+    "address3" : {
+      "title" : "Adresse 3",
+      "description" : "Dritte Adresszeile der Anschrift"
+    },
+    "postcode" : {
+      "title" : "PLZ",
+      "description" : "Postleitzahl, bei Anschriften im Ausland mit Länderpräfix z.B. AT-1010"
+    },
+    "place" : {
+      "title" : "Ort",
+      "description" : "Wohnort des Mitglieds"
+    },
+    "country" : {
+      "title" : "Land",
+      "description" : "Land des Mitglieds"
+    },
+    "phone" : {
+      "title" : "Telefon",
+      "description" : "Private Festnetznummer"
+    },
+    "mobile" : {
+      "title" : "Handynummer",
+      "description" : "Private Handynummer"
+    },
+    "email" : {
+      "title" : "E-Mail-Adresse",
+      "description" : "E-Mail@Adresse.de"
+    },
+    "birth" : {
+      "title" : "Geburtsdatum",
+      "description" : "Geburtsdatum im Format JJJJ-MM-TT"
+    },
+    "death" : {
+      "title" : "Todestag",
+      "description" : "Todestag im Format JJJJ-MM-TT"
+    },
+    "funeral" : {
+      "title" : "Beerdigung",
+      "description" : "Datum der Beerdigung im Format JJJJ-MM-TT"
+    },
+    "funeralPlace" : {
+      "title" : "Friedhof",
+      "description" : "Ort der Beisetzung"
+    }
+  },
+  "post" : {
+    "post" : {
+      "title" : "Postzentrum",
+      "description" : "Verwaltung der Verteiler und Versand von Serienbriefen"
+    }
+  },
+  "filters" : {
+    "filters" : {
+      "title" : "Filter",
+      "description" : "Übersicht der Filter für den Post- oder E-Mail-Versand"
+    },
+    "filter" : {
+      "title" : "Filtername",
+      "description" : "Eindeutige Bezeichnung des Filters"
+    },
+    "add" : {
+      "title" : "Filter hinzufügen",
+      "description" : "Einen Filter für den Serienbriefversand hinzufügen"
+    },
+    "addMore" : {
+      "title" : "Weiteren Filter hinzufügen",
+      "description" : "Einen weiteren Filter für den Serienbriefversand hinzufügen"
+    },
+    "description" : {
+      "title" : "Beschreibung",
+      "description" : "Beschreibung der Filterwirkung"
+    },
+    "sort" : {
+      "title" : "Sortierreihenfolge",
+      "description" : "Reihenfolge der Sortierung in den Übersichtstabellen und den Auswahlfeldern"
+    },
+    "conditions" : {
+      "title" : "Filterbedingungen",
+      "description" : "Bedingungen nach denen gefiltert wird"
+    },
+    "preview" : {
+      "title" : "Filtervoschau",
+      "description" : "Vorschau der FIlterfunktion mit beschränkter Anzahl der angezeigten Ergebnisse"
+    }
+  },
+  "membershipTypes" : {
+    "ID" : {
+      "title" : "Nummer",
+      "description" : "Interne Nummer der Mitgliedsart"
+    },
+    "membershipTypes" : {
+      "title" : "Mitgliedsarten",
+      "description" : "Übersicht der Mitgliedsarten (z.B. Vollmitglied, Fördermitglied)"
+    },
+    "membershipType" : {
+      "title" : "Mitgliedsart",
+      "description" : "Titel der Mitgliedsart"
+    },
+    "description" : {
+      "title" : "Beschreibung",
+      "description" : "Beschreibung der Mitgliedsart"
+    },
+    "sort" : {
+      "title" : "Sortierreihenfolge",
+      "description" : "Reihenfolge der Sortierung in den Tabellen und den Auswahlfeldern"
+    },
+    "selectable" : {
+      "title" : "Auswählbar",
+      "description" : "Ob die Mitgliedsart für Mitglieder auswählbar ist, oder lediglich als Überschrift dient"
+    },
+    "level" : {
+      "title" : "Ebene",
+      "description" : "Ebene der Mitgliedsart"
+    },
+    "date" : {
+      "title" : "Status erreicht am",
+      "description" : "Datum an dem diese Mitgliedsart erlangt wurde"
+    },
+    "add" : {
+      "title" : "Art der Mitgliedschaft hinzufügen",
+      "description" : "Neue Mitgliedsart hinzufügen z.B. Ehrenmitglieder "
+    },
+    "addMore" : {
+      "title" : "Weitere Art der Mitgliedschaft hinzufügen",
+      "description" : "Eine weitere Art der Mitgliedschaft hinzufügen"
+    }
+  },
+  "offices" : {
+    "ID" : {
+      "title" : "Nummer",
+      "description" : "Interne Nummer des Amtes"
+    },
+    "offices" : {
+      "title" : "Ämter",
+      "description" : "Übersicht der Ämter der Organisation"
+    },
+    "office" : {
+      "title" : "Amt",
+      "description" : "Titel des Amtes"
+    },
+    "colleagues" : {
+      "title" : "Conchargen",
+      "description" : "Zeitgleiche Amtsträger"
+    },
+    "description" : {
+      "title" : "Beschreibung",
+      "description" : "Kurze Aufgabenbeschreibung des Amtes"
+    },
+    "sort" : {
+      "title" : "Sortierreihenfolge",
+      "description" : "Sortierreihenfolge in den Übersichtstabellen und den Auswahlfeldern"
+    },
+    "from" : {
+      "title" : "Amtsantritt",
+      "description" : "Datum des Amtsantritts im Format JJJJ-MM-TT"
+    },
+    "to" : {
+      "title" : "Amtsende",
+      "description" : "Datum des Amtsendes im Format JJJJ-MM-TT"
+    },
+    "add" : {
+      "title" : "Amt hinzufügen",
+      "description" : "EIn neues Amt hinzufügen z.B. Beisitzer"
+    },
+    "addMore" : {
+      "title" : "Weiteres Amt hinzufügen",
+      "description" : "Ein weiteres Amt hinzufügen"
+    }
+  },
+  "tools" : {
+    "tools" : {
+      "title" : "Werkzeuge",
+      "description" : "Übersicht der Werkzeuge"
+    },
+    "tool" : {
+      "title" : "Werkzeug",
+      "description" : "Ein einzelnes Werkzeug zum Interagieren mit den Datensätzen"
+    },
+    "update" : {
+      "success" : "Der Datensatz wurde erfolgreich aktualisiert.",
+      "failure" : "Bei der Aktualisierung des Datensatzes ist ein Fehler aufgetreten.",
+      "setTo" : "wurde gesetzt auf"
+    },
+    "add" : {
+      "success" : "Der Datensatz wurde erfolgreich hinzugefügt.",
+      "failure" : "Beim Hinzufügen des Datensatzes ist ein Fehler aufgetreten.",
+      "setTo" : "wurde gesetzt auf"
+    }
+  },
+  "settings" : {
+    "setting" : {
+      "title" : "Einstellung",
+      "description" : "Einzelne Einstellung, durch die eine spezielle Arbeitsweise des Programmms verändert werden kann"
+    },
+    "settings" : {
+      "title" : "Einstellungen",
+      "description" : "Übersicht aller Einstellungen"
+    },
+    "value" : {
+      "title" : "Eingestellt auf",
+      "description" : "Derzeitiger Wert der Einstellung"
+    },
+    "description" : {
+      "title" : "Beschreibung",
+      "description" : "Beschreibung der Auswirkungen der Einstellung"
+    },
+    "orgName" : {
+      "title" : "Name der Organisation",
+      "description" : "Offizieller Name der Organisation oder des Unternehmens"
+    },
+    "orgShort" : {
+      "title" : "Kurzname",
+      "description" : "Kurzversion des Organisations- oder Unternehmensnamens"
+    },
+    "orgAddress1" : {
+      "title" : "Adresse 1",
+      "description" : "Erste Adresszeile der Organisation"
+    },
+    "orgAddress2" : {
+      "title" : "Adresse 2",
+      "description" : "Zweite Adresszeile der Organisation"
+    },
+    "orgAddress3" : {
+      "title" : "Adresse 3",
+      "description" : "Dritte Adresszeile der Organisation"
+    },
+    "orgPostcode" : {
+      "title" : "PLZ",
+      "description" : "Postleitzahl der Organisation"
+    },
+    "orgPlace" : {
+      "title" : "Ort",
+      "description" : "Ort der Organisation"
+    },
+    "appName" : {
+      "title" : "Name der App",
+      "description" : "Bezeichnung des Programms"
+    },
+    "perPage" : {
+      "title" : "VERALTET perPage",
+      "description" : "Maximale Anzahl der angezeigten Ergebnisse in den Übersichts- und Suchtabellen"
+    },
+    "maxPerPage" : {
+      "title" : "Maximale Ergebnisse pro Seite:",
+      "description" : "Maximale Anzahl der angezeigten Ergebnisse in den Übersichts- und Suchtabellen"
+    },
+    "primary" : {
+      "title" : "Hauptfarbe",
+      "description" : "Hauptfarbe"
+    },
+    "secondary" : {
+      "title" : "Akzentfarbe",
+      "description" : "Akzentfarbe"
+    }
+  }
+}

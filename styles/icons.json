@@ -1,0 +1,17 @@
+{
+  "success" : "success-standard",
+  "failure" : "times-circle",
+  "home" : "home",
+  "members" : "users",
+  "membershipTypes" : "organization",
+  "offices" : "employee",
+  "tools" : "tools",
+  "settings" : "cog",
+  "details" : "details",
+  "save" : "floppy",
+  "add" : "plus",
+  "plus" : "plus",
+  "finances" : "coin-bag",
+  "post" : "envelope",
+  "filters" : "filter"
+}

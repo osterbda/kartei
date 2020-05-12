@@ -1,0 +1,12 @@
+*{
+  padding: 0;
+  margin: 0;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  //display: block;
+  background: transparent;
+  position: relative;
+  border: 0px solid #ffffff;
+  outline: 0px solid #ffffff;
+}

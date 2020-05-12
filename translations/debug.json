@@ -1,0 +1,290 @@
+{
+  "key" : "XXX",
+  "value" : "XXX",
+  "action" : "XXX",
+  "page" : "XXX",
+  "details" : "XXX",
+  "logout" : "XXX",
+  "gotoEntry" : "XXX",
+  "totalResults" : "XXX",
+  "min" : "XXX",
+  "max" : "XXX",
+  "home" : {
+    "home" : {
+      "title" : "XXX",
+      "description" : "XXX"
+    }
+  },
+  "members" : {
+    "member" : {
+      "title" : "XXX",
+      "description" : "XXX"
+    },
+    "members" : {
+      "title" : "XXX",
+      "description" : "XXX"
+    },
+    "add" : {
+      "title" : "XXX",
+      "description" : "XXX"
+    },
+    "addMore" : {
+      "title" : "XXX",
+      "description" : "XXX"
+    },
+    "ID" : {
+      "title" : "XXX",
+      "description" : "XXX"
+    },
+    "prefix" : {
+      "title" : "XXX",
+      "description" : "XXX"
+    },
+    "suffix" : {
+      "title" : "XXX",
+      "description" : "XXX"
+    },
+    "nameFamily" : {
+      "title" : "XXX",
+      "description" : "XXX"
+    },
+    "nameGiven" : {
+      "title" : "XXX",
+      "description" : "XXX"
+    },
+    "address1" : {
+      "title" : "XXX",
+      "description" : "XXX"
+    },
+    "address2" : {
+      "title" : "XXX",
+      "description" : "XXX"
+    },
+    "address3" : {
+      "title" : "XXX",
+      "description" : "XXX"
+    },
+    "postcode" : {
+      "title" : "XXX",
+      "description" : "XXX"
+    },
+    "place" : {
+      "title" : "XXX",
+      "description" : "XXX"
+    },
+    "country" : {
+      "title" : "XXX",
+      "description" : "XXX"
+    },
+    "phone" : {
+      "title" : "XXX",
+      "description" : "XXX"
+    },
+    "mobile" : {
+      "title" : "XXX",
+      "description" : "XXX"
+    },
+    "email" : {
+      "title" : "XXX",
+      "description" : "XXX"
+    },
+    "birth" : {
+      "title" : "XXX",
+      "description" : "XXX"
+    },
+    "death" : {
+      "title" : "XXX",
+      "description" : "XXX"
+    },
+    "funeral" : {
+      "title" : "XXX",
+      "description" : "XXX"
+    },
+    "funeralPlace" : {
+      "title" : "XXX",
+      "description" : "XXX"
+    }
+  },
+  "post" : {
+    "post" : {
+      "title" : "XXX",
+      "description" : "XXX"
+    }
+  },
+  "filters" : {
+    "filters" : {
+      "title" : "XXX",
+      "description" : "XXX"
+    },
+    "add" : {
+      "title" : "XXX",
+      "description" : "XXX"
+    }
+  },
+  "membershipTypes" : {
+    "ID" : {
+      "title" : "XXX",
+      "description" : "XXX"
+    },
+    "membershipTypes" : {
+      "title" : "XXX",
+      "description" : "XXX"
+    },
+    "membershipType" : {
+      "title" : "XXX",
+      "description" : "XXX"
+    },
+    "description" : {
+      "title" : "XXX",
+      "description" : "XXX"
+    },
+    "sort" : {
+      "title" : "XXX",
+      "description" : "XXX"
+    },
+    "selectable" : {
+      "title" : "XXX",
+      "description" : "XXX"
+    },
+    "level" : {
+      "title" : "XXX",
+      "description" : "XXX"
+    },
+    "date" : {
+      "title" : "XXX",
+      "description" : "XXX"
+    },
+    "add" : {
+      "title" : "XXX",
+      "description" : "XXX"
+    },
+    "addMore" : {
+      "title" : "XXX",
+      "description" : "XXX"
+    }
+  },
+  "offices" : {
+    "ID" : {
+      "title" : "XXX",
+      "description" : "XXX"
+    },
+    "offices" : {
+      "title" : "XXX",
+      "description" : "XXX"
+    },
+    "office" : {
+      "title" : "XXX",
+      "description" : "XXX"
+    },
+    "description" : {
+      "title" : "XXX",
+      "description" : "XXX"
+    },
+    "sort" : {
+      "title" : "XXX",
+      "description" : "XXX"
+    },
+    "from" : {
+      "title" : "XXX",
+      "description" : "XXX"
+    },
+    "to" : {
+      "title" : "XXX",
+      "description" : "XXX"
+    },
+    "add" : {
+      "title" : "XXX",
+      "description" : "XXX"
+    },
+    "addMore" : {
+      "title" : "XXX",
+      "description" : "XXX"
+    }
+  },
+  "tools" : {
+    "tools" : {
+      "title" : "XXX",
+      "description" : "XXX"
+    },
+    "tool" : {
+      "title" : "XXX",
+      "description" : "XXX"
+    },
+    "update" : {
+      "success" : "XXX",
+      "failure" : "XXX",
+      "setTo" : "XXX"
+    },
+    "add" : {
+      "success" : "XXX",
+      "failure" : "XXX",
+      "setTo" : "XXX"
+    }
+  },
+  "settings" : {
+    "setting" : {
+      "title" : "XXX",
+      "description" : "XXX"
+    },
+    "settings" : {
+      "title" : "XXX",
+      "description" : "XXX"
+    },
+    "value" : {
+      "title" : "XXX",
+      "description" : "XXX"
+    },
+    "description" : {
+      "title" : "XXX",
+      "description" : "XXX"
+    },
+    "orgName" : {
+      "title" : "XXX",
+      "description" : "XXX"
+    },
+    "orgShort" : {
+      "title" : "XXX",
+      "description" : "XXX"
+    },
+    "orgAddress1" : {
+      "title" : "XXX",
+      "description" : "XXX"
+    },
+    "orgAddress2" : {
+      "title" : "XXX",
+      "description" : "XXX"
+    },
+    "orgAddress3" : {
+      "title" : "XXX",
+      "description" : "XXX"
+    },
+    "orgPostcode" : {
+      "title" : "XXX",
+      "description" : "XXX"
+    },
+    "orgPlace" : {
+      "title" : "XXX",
+      "description" : "XXX"
+    },
+    "appName" : {
+      "title" : "XXX",
+      "description" : "XXX"
+    },
+    "perPage" : {
+      "title" : "XXX",
+      "description" : "XXX"
+    },
+    "maxPerPage" : {
+      "title" : "XXX",
+      "description" : "XXX"
+    },
+    "primary" : {
+      "title" : "XXX",
+      "description" : "XXX"
+    },
+    "secondary" : {
+      "title" : "XXX",
+      "description" : "XXX"
+    }
+  }
+}
