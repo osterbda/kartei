@@ -11,24 +11,23 @@ function icons($icon, $size){
 }
 
 function filter($ID){
-  $fields ="";
+  $fields = "";
   $query = "SELECT `table`, `field`, `check`, `value` FROM filter WHERE filter = ".$ID;
   $result = mysqli_query($GLOBALS["db"], $query);
   while($row = mysqli_fetch_array($result)){
     if($fields !== ""){
       $fields .= " AND ";
     }
-    $fields .= $row["table"].".".$row["field"].' '.$row["check"].' '.$row["value"];
+    $fields .= $row["check"]." EXISTS	(SELECT 1 FROM ".$row["table"]." WHERE ".$row["field"]." = ".$row["value"]." AND ".$row["table"].".member = m.ID)\n";
   }
-  $query =
-  "SELECT DISTINCT members.ID, salutation, nameGiven, nameFamily, suffix, address1, address2, postcode, place
-   FROM members LEFT JOIN mt ON mt.member = members.ID
-                LEFT JOIN membershipTypes ON membershipTypes.ID = mt.membershipType
-                LEFT JOIN mo ON mo.member = members.ID
-                LEFT JOIN offices ON offices.ID = mo.office
-   WHERE $fields
-   ORDER BY nameFamily ASC, nameGiven ASC
-   LIMIT 0, ".$GLOBALS["settings"]["maxPerPage"];
+   $query =
+   "SELECT 	salutation, title, nameGiven, nameFamily, suffix, address1, address2, postcode, place
+    FROM 	members m
+    WHERE $fields AND m.ausGrund = '' AND m.ausGrund IS NOT NULL
+    GROUP BY m.ID
+    ORDER BY `m`.`nameFamily` ASC
+    LIMIT 0, ".$GLOBALS["settings"]["maxPerPage"];
+
   return $query;
 }
 
