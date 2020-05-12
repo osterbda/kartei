@@ -7,6 +7,7 @@
       <ul>
         <li><a href='?s=2&p=add'><?php echo $trans["members"]["add"]["title"]; ?></a></li>
         <li><a href="?lang=de">Deutsch</a></li>
+        <li><a href="?lang=verbindung">Verbindungsdeutsch</a></li>
         <li><a href="?lang=debug">Debug</a></li>
         <li><a href="?session=destroy"><?php echo $trans["logout"]; ?></a></li>
       </ul>

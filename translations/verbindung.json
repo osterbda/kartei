@@ -201,7 +201,7 @@
       "description" : "Interne Nummer der Charge"
     },
     "offices" : {
-      "title" : "Ämter",
+      "title" : "Chargen",
       "description" : "Übersicht der Chargen der Organisation"
     },
     "office" : {
