@@ -140,7 +140,7 @@ input[type="submit"]{
 @media (min-width: 1100px) {
   .pages{
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(auto-fill, minmax(200px, 1fr));
+    /*grid-template-rows: repeat(auto-fill, minmax(200px, 1fr));*/
   }
   .pages>div:only-child{
     grid-column: 1 / 4;
@@ -167,9 +167,12 @@ input[type="submit"]{
   grid-area: footer;
 }
 
-.alert{
+.alert, .card{
   padding: .5rem;
   margin: .5rem;
+}
+.card{
+  border-radius: .5rem;
 }
 
 /*   P I L L S   */

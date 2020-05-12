@@ -99,7 +99,7 @@ function t_mt ($ID, $t1){
               ORDER BY date ASC";
   }else {
     $table .= "<th>".$GLOBALS["trans"]["members"]["member"]["title"]."</th></tr></thead>";
-    $query = "SELECT m.ID, CONCAT(prefix,' ',nameGiven,' ',nameFamily,', ',suffix) AS member, DATE_FORMAT(mt.date, '%d.%m.%Y') AS d
+    $query = "SELECT m.ID, CONCAT(title,' ',nameGiven,' ',nameFamily,', ',suffix) AS member, DATE_FORMAT(mt.date, '%d.%m.%Y') AS d
               FROM membershiptypes t
                 LEFT JOIN mt ON t.ID = mt.membershiptype
                 LEFT JOIN members m ON mt.member = m.ID
@@ -212,6 +212,41 @@ function t_filter($ID){
   while($row = mysqli_fetch_array($result)){
     $table .= "<tr><td>".$row["table"]."</td><td>".$row["field"]."</td><td>".$row["check"]."</td><td>".$row["value"]."</td></tr>";
   }
+
+  $table .= "<form method='POST' action='?s=1000&p=add'>";
+  $table .= "<tr>";
+  $table .= "<input name='section' value='filter' style='display:none'>";
+  $table .= "<input name='filter' value='".$ID."' style='display:none'>";
+  // SELECT table by which is to be filtered
+/*  $table .= "<td><select name='table'>";
+  $table .= "<option value='mt'>".$GLOBALS["trans"]["membershipTypes"]["membershipTypes"]["title"]."</option>";
+  $table .= "<option value='mo'>".$GLOBALS["trans"]["offices"]["offices"]["title"]."</option>";
+  $table .= "</select></td>";*/
+
+  // SELECT field by which is to be filtered
+  $table .= "<td colspan='2'><select name='field'>";
+  foreach (array("mt", "mo") as $value) {
+    $query = "SHOW FULL COLUMNS FROM $value";
+    $result = mysqli_query($GLOBALS["db"], $query);
+    while($row = mysqli_fetch_array($result)){
+      $table .= "<option value='".$value.".".$row["Field"]."'>".$value.".".$row["Field"]."</option>";
+    }
+  }
+  $table .="</select></td>";
+
+  // SELECT if filter is positive or negative
+  $table .= "<td><select name='check'>";
+  $table .= "<option value=''></option>";
+  $table .= "<option value='NOT'>NOT</option>";
+  $table .="</select></td>";
+
+  // SELECT value to be filtered
+  $table .= "<td><input name='value'></td>";
+
+
+  $table .= "</tr>";
+  $table .= "<tr><td colspan='4'><input type='submit' value='FILTER'></td></tr>";
+  $table .= "</form>";
   $table .= "</tbody></table>";
   return $table;
 }
@@ -227,7 +262,6 @@ function t_filter_preview($ID){
   $table .= "<th>".$GLOBALS["trans"]["members"]["place"]["title"]."</th>";
   $table .= "</tr></thead><tbody>";
   $query = filter($ID);
-  echo $query;
   $result = mysqli_query($GLOBALS["db"], $query);
   if(!$result){
     $table .= "<tr><td colspan='8'>".$query."</td></tr>";

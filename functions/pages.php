@@ -12,7 +12,11 @@ $class = boolval($row["class"]);
 echo "<div class='title'><h1>";
 echo icons($row["section"], 42);
 echo "</h1><h1>";
-echo $trans[$row["section"]][$row["section"]]["title"];
+if(isset($trans[$row["section"]][$row["section"]]["title"])){
+  echo $trans[$row["section"]][$row["section"]]["title"];
+}else{
+  echo $row["section"]." ist not yet translated";
+}
 echo "</h1></div>";
 echo "<div class='pages'>";
 
