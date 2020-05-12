@@ -119,6 +119,16 @@
       "description" : "Verwaltung der Verteiler und Versand von Serienbriefen"
     }
   },
+  "filter" : {
+    "filter" : {
+      "title" : "Filtereigenschaft",
+      "description" : "Einzelne Filtereigenschaft"
+    },
+    "addMore" : {
+      "title" : "Weitere Filtereigenschaft hinzufügen",
+      "description" : "Eine weitere Filtereigenschaft zum Filter hinzufügen"
+    }
+  },
   "filters" : {
     "filters" : {
       "title" : "Filter",
@@ -255,6 +265,16 @@
       "success" : "Der Datensatz wurde erfolgreich hinzugefügt.",
       "failure" : "Beim Hinzufügen des Datensatzes ist ein Fehler aufgetreten.",
       "setTo" : "wurde gesetzt auf"
+    }
+  },
+  "search" : {
+    "search" : {
+      "title" : "Suche",
+      "description" : "Suche"
+    },
+    "searchTerm" : {
+      "title" : "Suchbegriff",
+      "description" : "Begriff, nach dem Gesucht werden soll"
     }
   },
   "settings" : {

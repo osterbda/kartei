@@ -167,9 +167,12 @@ input[type="submit"]{
   grid-area: footer;
 }
 
-.alert{
+.alert, .card{
   padding: .5rem;
   margin: .5rem;
+}
+.card{
+  border-radius: .5rem;
 }
 
 /*   P I L L S   */
