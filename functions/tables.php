@@ -218,14 +218,20 @@ function t_filter($ID){
   $table .= "<input name='section' value='filter' style='display:none'>";
   $table .= "<input name='filter' value='".$ID."' style='display:none'>";
   // SELECT table by which is to be filtered
-  $table .= "<td><select name='table'>";
+/*  $table .= "<td><select name='table'>";
   $table .= "<option value='mt'>".$GLOBALS["trans"]["membershipTypes"]["membershipTypes"]["title"]."</option>";
   $table .= "<option value='mo'>".$GLOBALS["trans"]["offices"]["offices"]["title"]."</option>";
-  $table .= "</select></td>";
+  $table .= "</select></td>";*/
 
   // SELECT field by which is to be filtered
-  $table .= "<td><select name='field'>";
-  $table .= "<option value='mt'>MT</option>";
+  $table .= "<td colspan='2'><select name='field'>";
+  foreach (array("mt", "mo") as $value) {
+    $query = "SHOW FULL COLUMNS FROM $value";
+    $result = mysqli_query($GLOBALS["db"], $query);
+    while($row = mysqli_fetch_array($result)){
+      $table .= "<option value='".$value.".".$row["Field"]."'>".$value.".".$row["Field"]."</option>";
+    }
+  }
   $table .="</select></td>";
 
   // SELECT if filter is positive or negative
@@ -235,7 +241,7 @@ function t_filter($ID){
   $table .="</select></td>";
 
   // SELECT value to be filtered
-  $table .= "<td><input value></td>";
+  $table .= "<td><input name='value'></td>";
 
 
   $table .= "</tr>";

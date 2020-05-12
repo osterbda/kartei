@@ -40,8 +40,14 @@ function add($section, $values){
   $update = "";
   foreach ($values as $key => $val) {
     if($key != "ID" && $key != "section" && isset($val) && $val != "" && $val != "0000-00-00"){
-      if(empty($sqlfields)){$sqlfields = "`".$key."`";}else{$sqlfields .= ",`".$key."`";}
-      if(empty($sqlvalues)){$sqlvalues = "'".$val."'";}else{$sqlvalues .= ",'".$val."'";}
+      if($section === "filter" && $key === "field"){
+        $f = explode('.', $val);
+        $sqlfields .= ",`table`,`field`";
+        $sqlvalues .= ",'".$f[0]."','".$f[1]."'";
+      }else{
+        if(empty($sqlfields)){$sqlfields = "`".$key."`";}else{$sqlfields .= ",`".$key."`";}
+        if(empty($sqlvalues)){$sqlvalues = "'".$val."'";}else{$sqlvalues .= ",'".$val."'";}
+      }
     }
   }
   $query = "INSERT INTO $section ($sqlfields) VALUES ($sqlvalues)";
