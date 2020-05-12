@@ -36,7 +36,11 @@
       "title" : "XXX",
       "description" : "XXX"
     },
-    "prefix" : {
+    "salutation" : {
+      "title" : "XXX",
+      "description" : "XXX"
+    },
+    "title" : {
       "title" : "XXX",
       "description" : "XXX"
     },
@@ -49,6 +53,10 @@
       "description" : "XXX"
     },
     "nameGiven" : {
+      "title" : "XXX",
+      "description" : "XXX"
+    },
+    "nickname" : {
       "title" : "XXX",
       "description" : "XXX"
     },
@@ -116,7 +124,31 @@
       "title" : "XXX",
       "description" : "XXX"
     },
+    "filter" : {
+      "title" : "XXX",
+      "description" : "XXX"
+    },
     "add" : {
+      "title" : "XXX",
+      "description" : "XXX"
+    },
+    "addMore" : {
+      "title" : "XXX",
+      "description" : "XXX"
+    },
+    "description" : {
+      "title" : "XXX",
+      "description" : "XXX"
+    },
+    "sort" : {
+      "title" : "XXX",
+      "description" : "XXX"
+    },
+    "conditions" : {
+      "title" : "XXX",
+      "description" : "XXX"
+    },
+    "preview" : {
       "title" : "XXX",
       "description" : "XXX"
     }
@@ -173,6 +205,10 @@
       "description" : "XXX"
     },
     "office" : {
+      "title" : "XXX",
+      "description" : "XXX"
+    },
+    "colleagues" : {
       "title" : "XXX",
       "description" : "XXX"
     },
