@@ -140,7 +140,7 @@ function t_mo ($ID, $t1){
     $table .= "<th>".$GLOBALS["trans"]["offices"]["to"]["title"]."</th>";
     if($t1 === "members"){
       $table .= "<th>".$GLOBALS["trans"]["offices"]["office"]["title"]."</th></tr></thead>";
-      $query = "SELECT o.ID, DATE_FORMAT(mo.from, '%d.%m.%Y') AS `from`, DATE_FORMAT(mo.to, '%d.%m.%Y') AS `to`, o.office
+      $query = "SELECT o.ID, DATE_FORMAT(mo.from, '%d.%m.%Y') AS `fromd`, DATE_FORMAT(mo.to, '%d.%m.%Y') AS `to`, o.office
                 FROM offices o
                   RIGHT JOIN mo ON o.ID = mo.office
                   RIGHT JOIN members m ON mo.member = m.ID
@@ -148,7 +148,7 @@ function t_mo ($ID, $t1){
                 ORDER BY `from` ASC";
     }else{
       $table .= "<th>".$GLOBALS["trans"]["members"]["member"]["title"]."</th></tr></thead>";
-      $query = "SELECT m.ID, DATE_FORMAT(mo.from, '%d.%m.%Y') AS `from`, DATE_FORMAT(mo.to, '%d.%m.%Y') AS `to`, CONCAT(salutation, ' ', title,' ',nameGiven,' ',nameFamily, ', ', suffix) AS member
+      $query = "SELECT m.ID, DATE_FORMAT(mo.from, '%d.%m.%Y') AS `fromd`, DATE_FORMAT(mo.to, '%d.%m.%Y') AS `to`, CONCAT(salutation, ' ', title,' ',nameGiven,' ',nameFamily, ', ', suffix) AS member
                 FROM offices o
                   LEFT JOIN mo ON o.ID = mo.office
                   LEFT JOIN members m ON mo.member = m.ID
@@ -158,7 +158,7 @@ function t_mo ($ID, $t1){
     //echo $query;
   $result = mysqli_query($GLOBALS["db"], $query);
   while($row = mysqli_fetch_array($result)){
-    $table .= "<tr><td>".$row["from"]."</td><td>".$row["to"]."</td><td>";
+    $table .= "<tr><td>".$row["fromd"]."</td><td>".$row["to"]."</td><td>";
     if($t1 === "members"){
       $table .= "<a href='?s=5&p=".$row["ID"]."'>".$row["office"]."</a>";
     }else{
@@ -171,13 +171,17 @@ function t_mo ($ID, $t1){
 }
 
 function t_officecolleagues($ID){
-  $query = "SELECT DISTINCT CONCAT(m2.ID,'-',o.ID,'-',mo2.`from`), m2.ID AS mID, CONCAT(m2.nameGiven, ' ', m2.nameFamily) AS member, mo2.`from`, mo2.`to`, mo2.office AS oID, o.office AS office
+  $query = "SELECT DISTINCT CONCAT(m2.ID,'-',o.ID,'-',mo2.`from`), m2.ID AS mID, CONCAT(m2.nameGiven, ' ', m2.nameFamily) AS member,
+            DATE_FORMAT(mo2.`from`, '%d.%m.%Y') AS fromd, mo2.`from`, DATE_FORMAT(mo2.`to`, '%d.%m.%Y')  AS `to`,
+            mo2.office AS oID, o.office AS office
             FROM members m1 LEFT JOIN mo mo1 ON m1.ID = mo1.member
-            LEFT JOIN mo mo2 ON mo1.`from` between mo2.`from` and mo2.`to` OR mo2.`from` between mo1.`from` and mo1.`to`
+            LEFT JOIN mo mo2 ON mo1.`from` between mo2.`from` and IF(mo2.`to`='0000-00-00' OR mo2.`to` IS NULL, CURDATE(), mo2.`to`)
+                      OR mo2.`from` between mo1.`from` and IF(mo1.`to`='0000-00-00' OR mo1.`to` IS NULL, CURDATE(), mo1.`to`)
             LEFT JOIN members m2 ON mo2.member = m2.ID
             LEFT JOIN offices o ON mo2.office = o.ID
-            WHERE m1.ID = $ID AND m2.ID <> $ID
+            WHERE m1.ID = $ID AND m2.ID <> $ID  AND mo2.`from` <> '0000-00-00'
             ORDER BY mo2.`from` ASC, mo2.office ASC";
+  echo $query;
   $table = "<table class='table'><thead><tr><th>".$GLOBALS["trans"]["offices"]["from"]["title"]."</th>";
   $table .= "<th>".$GLOBALS["trans"]["offices"]["from"]["title"]."</th>";
   $table .= "<th>".$GLOBALS["trans"]["offices"]["to"]["title"]."</th>";
@@ -185,7 +189,7 @@ function t_officecolleagues($ID){
   $result = mysqli_query($GLOBALS["db"], $query);
   while ($row = mysqli_fetch_array($result)) {
     $table .= "<tr><td><a href='?s=2&p=".$row["mID"]."'>".$row["member"]."</a></td>";
-    $table .= "<td>".$row["from"]."</td><td>".$row["to"]."</td>";
+    $table .= "<td>".$row["fromd"]."</td><td>".$row["to"]."</td>";
     $table .= "<td><a href='?s=5&p=".$row["oID"]."'>".$row["office"]."</a></td></tr>";
   }
   $table .= "</tbody></table>";
