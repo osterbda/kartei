@@ -1,8 +1,12 @@
 <?php
 function t_overview ($section) {
   $maxPerPage = (int)$GLOBALS["SETTINGS"]["maxPerPage"];
-  if(empty($_GET["start"])){$start = 0;}else{$start = $_GET["start"]*$maxPerPage;}
-  $table = "<table><thead><tr>";
+  if(empty($_GET["page"])){
+    $page = 1;
+  }else{
+    $page = $_GET["page"];
+  }
+  $table = "<table class='table'><thead><tr>";
   $query = "SHOW FULL COLUMNS FROM ".$section." WHERE Comment = 'Overview'";
   $result = mysqli_query($GLOBALS["db"], $query);
   $i = 1; $fields = "ID";
@@ -18,7 +22,7 @@ function t_overview ($section) {
   if($section === "members"){
     $query .= " ORDER BY nameFamily ASC";
   }
-  $query .= " LIMIT ".$start.", ".$maxPerPage; //ORDER BY ".$sort." ASC
+  $query .= " LIMIT ".(($page-1)*$maxPerPage).", ".$maxPerPage; //ORDER BY ".$sort." ASC
   //echo $query;
   $result = mysqli_query($GLOBALS["db"], $query);
   while ($row = mysqli_fetch_array($result)) {
@@ -32,12 +36,24 @@ function t_overview ($section) {
     $table .= "</tr>";
   }
   $table .= "</tbody></table>";
-  $table .= "<nav class='navbar'><div><ul><li>".$GLOBALS["trans"]["page"]."</li>";
-  for ($i = 0; $i < ($num / $maxPerPage); $i++) {
-    $table .= "<li><a href='?s=".$_GET["s"]."&start=".$i."'>".($i+1)."</a></li>";
+
+  $table .= "<nav class='navbar navbar-expand-lg navbar-light bg-light'><ul class='navbar-nav mr-auto'>";
+  if($num > $maxPerPage){
+    $numpages = ceil($num / $maxPerPage);
+    if($numpages >= 20){
+      if($page < 10)              {$minp = 1;        }else{$minp = ($page - 10);}
+      if($page > ($numpages - 10)){$maxp = $numpages;}else{$maxp = ($minp + 20);}
+    }
+    $table .= "<li class='nav-item'><a class='nav-link' href='?s=".$_GET["s"]."&page=1'><<</a></li>";
+    for ($i = $minp; $i <= $maxp; $i++) {
+      $table .= "<li class='nav-item'><a class='nav-link";
+      if((int)$i === (int)$page){$table .= " active";}
+      $table .="' href='?s=".$_GET["s"]."&page=".$i."'>".($i)."</a></li>";
+    }
+    $table .= "<li class='nav-item'><a class='nav-link' href='?s=".$_GET["s"]."&page=".$numpages."'>>></a></li>";
   }
-  $table .= "</ul></div><div>".$num." ".$GLOBALS["trans"]["totalResults"]." | ";
-  $table .= $GLOBALS["trans"]["settings"]["maxPerPage"]["title"]." ".$maxPerPage."</div></nav>";
+  $table .= "</ul><a class='navbar-brand'>".$num." ".$GLOBALS["trans"]["totalResults"]." | ";
+  $table .= $GLOBALS["trans"]["settings"]["maxPerPage"]["title"]." ".$maxPerPage."</a></nav>";
   //echo "<pre>";print_r($r); echo "</pre>";
   return $table;
 }
@@ -45,7 +61,7 @@ function t_overview ($section) {
 function t_details_full($section, $ID){
   $details = "<form method='post' action='?s=1000&p=";
   if($ID === "add"){ $details .= "add"; }else{ $details .= "update"; }
-  $details .= "'><table><thead><tr><th>";
+  $details .= "'><table class='table'><thead><tr><th>";
   $details .= $GLOBALS["trans"]["key"]."</th><th>".$GLOBALS["trans"]["value"]."</th></tr></thead><tbody>";
   $details .= "<input style='display:none' name='section' value='".$section."'>";
   if($ID !== "add"){
@@ -70,7 +86,7 @@ function t_details_full($section, $ID){
         }
 
         $details .= "</th>";
-        $details .= "<td><input name='".$column["Field"]."' value='";
+        $details .= "<td><input class='form-control' name='".$column["Field"]."' value='";
         if($ID !== "add"){
           $details .= $row[$column["Field"]];
         }
@@ -82,12 +98,12 @@ function t_details_full($section, $ID){
         }
       }
   }
-  $details .= "<tr><td colspan='2'><input type='submit' class='bg-primary' value='Speichern'></td></tr></tbody></table></form>";
+  $details .= "<tr><td colspan='2'><input type='submit' class='form-control btn btn-primary' value='Speichern'></td></tr></tbody></table></form>";
   return $details;
 }
 
 function t_mt ($ID, $t1){
-  $table = "<table><thead><tr><th>".$GLOBALS["trans"]["membershipTypes"]["date"]["title"]."</th>";
+  $table = "<table class='table'><thead><tr><th>".$GLOBALS["trans"]["membershipTypes"]["date"]["title"]."</th>";
   if($t1 === "members"){
     $table .= "<th>".$GLOBALS["trans"]["membershipTypes"]["membershipType"]["title"]."</th>";
     $table .= "<th>".$GLOBALS["trans"]["membershipTypes"]["description"]["title"]."</th></tr></thead>";
@@ -120,7 +136,7 @@ function t_mt ($ID, $t1){
 }
 
 function t_mo ($ID, $t1){
-    $table = "<table><thead><tr><th>".$GLOBALS["trans"]["offices"]["from"]["title"]."</th>";
+    $table = "<table class='table'><thead><tr><th>".$GLOBALS["trans"]["offices"]["from"]["title"]."</th>";
     $table .= "<th>".$GLOBALS["trans"]["offices"]["to"]["title"]."</th>";
     if($t1 === "members"){
       $table .= "<th>".$GLOBALS["trans"]["offices"]["office"]["title"]."</th></tr></thead>";
@@ -155,14 +171,14 @@ function t_mo ($ID, $t1){
 }
 
 function t_officecolleagues($ID){
-  $query = "SELECT m2.ID AS mID, CONCAT(m2.nameGiven, ' ', m2.nameFamily) AS member, mo2.`from`, mo2.`to`, mo2.office AS oID, o.office AS office
+  $query = "SELECT DISTINCT CONCAT(m2.ID,'-',o.ID,'-',mo2.`from`), m2.ID AS mID, CONCAT(m2.nameGiven, ' ', m2.nameFamily) AS member, mo2.`from`, mo2.`to`, mo2.office AS oID, o.office AS office
             FROM members m1 LEFT JOIN mo mo1 ON m1.ID = mo1.member
             LEFT JOIN mo mo2 ON mo1.`from` between mo2.`from` and mo2.`to` OR mo2.`from` between mo1.`from` and mo1.`to`
             LEFT JOIN members m2 ON mo2.member = m2.ID
             LEFT JOIN offices o ON mo2.office = o.ID
             WHERE m1.ID = $ID AND m2.ID <> $ID
             ORDER BY mo2.`from` ASC, mo2.office ASC";
-  $table = "<table><thead><tr><th>".$GLOBALS["trans"]["offices"]["from"]["title"]."</th>";
+  $table = "<table class='table'><thead><tr><th>".$GLOBALS["trans"]["offices"]["from"]["title"]."</th>";
   $table .= "<th>".$GLOBALS["trans"]["offices"]["from"]["title"]."</th>";
   $table .= "<th>".$GLOBALS["trans"]["offices"]["to"]["title"]."</th>";
   $table .= "<th>".$GLOBALS["trans"]["offices"]["office"]["title"]."</th></tr></thead><tbody>";
@@ -177,7 +193,7 @@ function t_officecolleagues($ID){
 }
 
 function t_settings(){
-  $details = "<form method='post' action='?s=1000&p=settings'><table><thead><tr><th>";
+  $details = "<form method='post' action='?s=1000&p=settings'><table class='table'><thead><tr><th>";
   $details .= $GLOBALS["trans"]["settings"]["setting"]["title"]."</th><th>".$GLOBALS["trans"]["settings"]["description"]["title"]."</th><th>".$GLOBALS["trans"]["settings"]["value"]["title"]."</th></tr></thead><tbody>";
   $query = "SELECT setting, value, valueType, min, max FROM settings ORDER BY sort ASC";
   $result = mysqli_query($GLOBALS["db"], $query);
@@ -189,19 +205,19 @@ function t_settings(){
       $details .= " (".$GLOBALS["trans"]["min"]." ".$row["min"]."; ".$GLOBALS["trans"]["max"]." ".$row["max"].")";
     }
     $details .= "</td>";
-    $details .= "<td><input type='".$row["valueType"]."' ";
+    $details .= "<td><input class='form-control' type='".$row["valueType"]."' ";
     if($row["valueType"] === "number" || $row["valueType"] === "range"){
       $details .= "min='".$row["min"]."' max='".$row["max"]."' ";
     }
     $details .="name='".$row["setting"]."' value='".$row["value"]."'></td>";
     "</tr>";
   }
-  $details .= "<tr><td colspan='3'><input type='submit' class='bg-primary' value='Speichern'></td></tr></tbody></table></form>";
+  $details .= "<tr><td colspan='3'><input type='submit' class='form-control btn btn-primary' value='Speichern'></td></tr></tbody></table></form>";
   return $details;
 }
 
 function t_filter($ID){
-  $table  = "<table><thead>";
+  $table  = "<table class='table'><thead>";
   $table .= "<th>TABLE</th>";
   $table .= "<th>FIELD</th>";
   $table .= "<th>CHECK</th>";
@@ -224,7 +240,7 @@ function t_filter($ID){
   $table .= "</select></td>";*/
 
   // SELECT field by which is to be filtered
-  $table .= "<td colspan='2'><select name='field'>";
+  $table .= "<td colspan='2'><select class='form-control' name='field'>";
   foreach (array("mt", "mo") as $value) {
     $query = "SHOW FULL COLUMNS FROM $value";
     $result = mysqli_query($GLOBALS["db"], $query);
@@ -235,24 +251,24 @@ function t_filter($ID){
   $table .="</select></td>";
 
   // SELECT if filter is positive or negative
-  $table .= "<td><select name='check'>";
+  $table .= "<td><select class='form-control' name='check'>";
   $table .= "<option value=''></option>";
   $table .= "<option value='NOT'>NOT</option>";
   $table .="</select></td>";
 
   // SELECT value to be filtered
-  $table .= "<td><input name='value'></td>";
+  $table .= "<td><input class='form-control' name='value'></td>";
 
 
   $table .= "</tr>";
-  $table .= "<tr><td colspan='4'><input type='submit' value='FILTER'></td></tr>";
+  $table .= "<tr><td colspan='4'><input type='submit' class='form-control btn btn-primary' value='FILTER'></td></tr>";
   $table .= "</form>";
   $table .= "</tbody></table>";
   return $table;
 }
 
 function t_filter_preview($ID){
-  $table  = "<table><thead><tr><th>".$GLOBALS["trans"]["members"]["salutation"]["title"]."</th>";
+  $table  = "<table class='table'><thead><tr><th>".$GLOBALS["trans"]["members"]["salutation"]["title"]."</th>";
   $table .= "<th>".$GLOBALS["trans"]["members"]["nameGiven"]["title"]."</th>";
   $table .= "<th>".$GLOBALS["trans"]["members"]["nameFamily"]["title"]."</th>";
   $table .= "<th>".$GLOBALS["trans"]["members"]["suffix"]["title"]."</th>";

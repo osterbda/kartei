@@ -8,7 +8,6 @@ $result = mysqli_query($db, $query);
 $row = mysqli_fetch_array($result);
 $section = $row["section"];
 $class = boolval($row["class"]);
-
 echo "<div class='title'><h1>";
 echo icons($row["section"], 42);
 echo "</h1><h1>";
@@ -18,8 +17,7 @@ if(isset($trans[$row["section"]][$row["section"]]["title"])){
   echo $row["section"]." ist not yet translated";
 }
 echo "</h1></div>";
-echo "<div class='pages'>";
-
+echo "<div class='row'>";
 if($class){
   if($p === 0){
     echo "<div>".t_overview($section, $start)."</div>";
@@ -28,16 +26,16 @@ if($class){
     echo "<h2>".$GLOBALS["trans"][$section]["add"]["title"]."</h2>";
     echo t_details_full($section, "add")."</div>";
   }else{
-    echo "<div class='two-columns'><h2>".$GLOBALS["trans"][$section][substr($section, 0, -1)]["title"]."</h2>";
+    echo "<div class='col-8'><h2>".$GLOBALS["trans"][$section][substr($section, 0, -1)]["title"]."</h2>";
     echo t_details_full($section, $p)."</div>";
     if($section === "members"){
-      echo "<div><h2>".$GLOBALS["trans"]["membershipTypes"]["membershipTypes"]["title"]."</h2>".t_mt($p, $section);
+      echo "<div class='col-4'><h2>".$GLOBALS["trans"]["membershipTypes"]["membershipTypes"]["title"]."</h2>".t_mt($p, $section);
       echo "<h2>".$GLOBALS["trans"]["offices"]["offices"]["title"]."</h2>".t_mo($p, $section);
       echo "<h2>".$GLOBALS["trans"]["offices"]["colleagues"]["title"]."</h2>".t_officecolleagues($p)."</div>";
     }elseif($section === "membershipTypes"){
-      echo "<div><h2>".$GLOBALS["trans"]["members"]["members"]["title"]."</h2>".t_mt($p, $section)."</div>";
+      echo "<div class='col-4'><h2>".$GLOBALS["trans"]["members"]["members"]["title"]."</h2>".t_mt($p, $section)."</div>";
     }elseif($section === "offices"){
-      echo "<div><h2>".$GLOBALS["trans"]["members"]["members"]["title"]."</h2>".t_mo($p, $section)."</div>";
+      echo "<div class='col-4'><h2>".$GLOBALS["trans"]["members"]["members"]["title"]."</h2>".t_mo($p, $section)."</div>";
     }elseif ($section === "filters") {
       echo "<div><h2>".$GLOBALS["trans"]["filters"]["conditions"]["title"]."</h2>".t_filter($p)."</div>";
       echo "<div class='three-columns'><h2>".$GLOBALS["trans"]["filters"]["preview"]["title"]."</h2>".t_filter_preview($p)."</div>";
