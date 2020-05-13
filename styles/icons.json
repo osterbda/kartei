@@ -13,5 +13,6 @@
   "plus" : "plus",
   "finances" : "coin-bag",
   "post" : "envelope",
-  "filters" : "filter"
+  "filters" : "filter",
+  "search" : "search"
 }

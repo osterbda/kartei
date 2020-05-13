@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de" dir="ltr">
   <head>
     <!--<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">!..>
@@ -55,23 +55,31 @@
       --secondary-dark:  #<?php echo darker($settings["secondary"]); ?>;
     }
     </style>
-    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/bootstrap.css">
+    <!--<link rel="stylesheet" href="styles/normalize.css">
     <link rel="stylesheet" href="styles/colors.css">
     <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="styles/debug.css">
+    <link rel="stylesheet" href="styles/debug.css">!-->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
     <title><?php echo $settings["appName"]; ?></title>
   </head>
-  <body id="body">
+  <body> <!-- style="overflow-x: hidden; overflow-y: scroll; min-height: 100%;" !-->
     <?php
-    echo "<div class='main' style=''>";
     require("static/navbar.php");
+    echo "<div class='row'>";
+    echo "<div class='col-sm-2'>";
     require("static/sidebar.php");
+    echo "</div><div class='col-sm-9'>";
     require("functions/pages.php");
+    echo "</div><div class='col-sm-1'>";
     require("static/toolbar.php");
+    echo "</div>";
+    echo "</div>";
     require("static/footer.php");
-    echo "</div>"
     ?>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
   </body>
 </html>
