@@ -181,7 +181,6 @@ function t_officecolleagues($ID){
             LEFT JOIN offices o ON mo2.office = o.ID
             WHERE m1.ID = $ID AND m2.ID <> $ID  AND mo2.`from` <> '0000-00-00'
             ORDER BY mo2.`from` ASC, mo2.office ASC";
-  echo $query;
   $table = "<table class='table'><thead><tr><th>".$GLOBALS["trans"]["offices"]["from"]["title"]."</th>";
   $table .= "<th>".$GLOBALS["trans"]["offices"]["from"]["title"]."</th>";
   $table .= "<th>".$GLOBALS["trans"]["offices"]["to"]["title"]."</th>";
